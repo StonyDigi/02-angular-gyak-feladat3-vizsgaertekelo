@@ -1,0 +1,16 @@
+<div class="container text-center d-flex justify-content-center align-items-center flex-column">
+    <h1>Vizsgaértékelő alkalmazás</h1>
+    <form>
+        <!-- Változásakor frissüljön, használhatjuk az (ngModelChange) eseményt. -->
+        <label class="mb-2 mt-5" for="maxPontszam">Kérem írja be a maximum elérhető pontszámot:</label>
+        <input class="mb-2 form-control w-50" type="number" name="maxPontszam" id="maxPontszam" [(ngModel)]="maxPontszam" (ngModelChange)="eredmeny()">
+        <!-- minden alkalommal, amikor az input mező értéke megváltozik, a ngModelChange esemény meghívja az eredmeny() függvényt. Ezáltal az eredmény azonnal frissül a beírt adatok alapján. -->
+        <label class="mb-2" for="elertPontszam">Kérem írja be az elért pontszámot:</label>
+        <input class="form-control w-50" type="number" name="elertPontszam" id="elertPontszam" [(ngModel)]="elertPontszam" (ngModelChange)="eredmeny()">
+
+    </form>
+
+    <div class="mt-5" *ngIf="ertekel !== '' ">
+        <p>Az eredmény: {{ ertekel }}</p>
+    </div>
+</div>
